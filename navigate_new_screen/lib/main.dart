@@ -119,6 +119,7 @@ class SecondRoute extends StatelessWidget {
       body: Center(
         child: ElevatedButton(
           onPressed: () {
+            Navigator.pop(context);
             // Navigate back to first route when tapped.
           },
           child: const Text('Go back!'),
