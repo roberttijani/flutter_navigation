@@ -100,10 +100,12 @@ class DetailScreen extends StatelessWidget {
           Navigator.pop(context);
         },
         child: Center(
+            child: Hero(
+          tag: 'imageHero',
           child: Image.network(
             'https://picsum.photos/250?image=9',
           ),
-        ),
+        )),
       ),
     );
   }
