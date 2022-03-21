@@ -88,14 +88,21 @@ class SelectionButton extends StatelessWidget {
     );
   }
 
+  // A method that launches the SelectionScreen and awaits the result from
+// Navigator.pop.
   void _navigateAndDisplaySelection(BuildContext context) async {
     // Navigator.push returns a Future that completes after calling
     // Navigator.pop on the Selection Screen.
     final result = await Navigator.push(
       context,
-      // Create the SelectionScreen in the next step.
       MaterialPageRoute(builder: (context) => const SelectionScreen()),
     );
+
+    // After the Selection Screen returns a result, hide any previous snackbars
+    // and show the new result.
+    ScaffoldMessenger.of(context)
+      ..removeCurrentSnackBar()
+      ..showSnackBar(SnackBar(content: Text('$result')));
   }
 }
 
